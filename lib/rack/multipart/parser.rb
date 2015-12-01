@@ -208,6 +208,7 @@ module Rack
                 k,v = param.split('=', 2)
                 k.strip!
                 v.strip!
+                v = Encoding::UTF_8 if v == '"utf-8"'
                 encoding = Encoding.find v if k == CHARSET
               end
             end
